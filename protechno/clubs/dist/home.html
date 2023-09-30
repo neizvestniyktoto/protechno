@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+	<title>HomePage</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+    .stock-out {
+		opacity: 0.4;
+		filter: alpha(opacity=40); /* msie */
+	}
+</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<header data-watch data-watch-threshold='0.5' data-scroll="80" class="header">
+			<div class="header__container">
+				<a href="#" class="header__logo"><picture><source srcset="{% static 'img/logo.webp'%}" type="image/webp"><img src="img/logo.png" alt="Logo"></picture><span>протехно</span></a>
+				<div class="header__menu menu">
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+					<nav class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item"><a data-goto-header data-goto=".about" href="#" class="menu__link">О нас</a></li>
+							<li class="menu__item"><a data-goto-header data-goto=".clubs" href="#" class="menu__link">Клубы</a></li>
+							<li class="menu__item"><a data-goto-header data-goto=".catalog" href="#" class="menu__link">Продукция</a></li>
+							<li class="menu__item"><a data-goto-header data-goto=".footer" href="#" class="menu__link">Контакты</a></li>
+						</ul>
+					</nav>
+				</div>
+				<a data-da=".menu__body, 991.98" href="tel:+73912264190" class="header__number"><picture><source srcset="{% static 'img/icons/tel.webp' %}" type="image/webp"><img src="img/icons/tel.png" alt="Icon"></picture><span>+7 (391) 226-41-90</span></a>
+			</div>
+		</header>
+		<main class="page">
+			<section data-fullscreen class="about">
+				<div class="about__container">
+					<h1 data-watch data-watch-threshold='0.3' class="about__title title">О нас</h1>
+					<div class="about__slider">
+						<div class="about__swiper">
+							<div class="about__slide">
+								<div data-watch data-watch-once class="about__text">
+									<p>Современное пространство для молодёжи, в котором любой сможет найти занятие по душе.
+										Мы — команда, которая поддерживает любые молодёжные инициативы. Мы проводим события разного формата: кинопросмотры, семинары, лекции, спортивные события, квартирники, мастер-классы и многое другое. В нашем центре вы обязательно найдёте себе занятие по душе и новых друзей.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="clubs">
+				<div class="clubs__container">
+					<h2 data-watch data-watch-threshold='0.3' class="clubs__title title">Клубы</h2>
+					<div class="clubs__items">
+						{% for club in clubs %}
+						<div data-watch data-watch-threshold='0.5' data-watch-once href="#" class="clubs__item item-clubs">
+							<a href="#">
+								<div class="item-clubs__image-ibg"><picture><source srcset="{% static 'img/F2.png'%}" type="image/webp"><img src="{% static 'img/F2.png'%}" alt="Image"></picture></div>
+								<div class="item-clubs__body">
+									<h3 class="item-clubs__title">{{club.title}}</h3>
+									<a href="#" data-popup="#club-info{{club.pk}}" data- class="item-clubs__button button">Подробнее</a>
+								</div>
+							</a>
+						</div>
+						{% endfor %}
+						<!--<div data-watch data-watch-threshold='0.3' data-watch-once href="#" class="clubs__item item-clubs">
+							<a href="#">
+								<div class="item-clubs__image-ibg"><picture><source srcset="{% static 'img/clubs/01.webp' %}" type="image/webp"><img src="{% static 'img/clubs/01.jpg' %}" alt="Image"></picture></div>
+								<div class="item-clubs__body">
+									<h3 class="item-clubs__title">Название клуба</h3>
+									<a href="#" data-popup="#club-info" class="item-clubs__button button">Подробнее</a>
+								</div>-
+							</a>
+						</div>
+						<div data-watch data-watch-threshold='0.3' data-watch-once href="#" class="clubs__item item-clubs">
+							<a href="#">
+								<div class="item-clubs__image-ibg"><picture><source srcset="{% static 'img/2023-09-30_20-06-34.png'%}" type="image/webp"><img src="{% static 'img/2023-09-30_20-06-34.png'%}" alt="Image"></picture></div>
+								<div class="item-clubs__body">
+									<h3 class="item-clubs__title">Название клуба</h3>
+									<a href="#" data-popup="#club-info" class="item-clubs__button button">Подробнее</a>
+								</div>
+							</a>
+						</div>-->
+					</div>
+				</div>
+			</section>
+			<section class="catalog">
+				<div class="catalog__container">
+					<div class="catalog__header">
+						<h2 data-watch data-watch-threshold='0.3' class="catalog__title title">Каталог товаров</h2>
+						<div class="catalog__cart">Корзина: <span>0</span></div>
+						<a data-popup="#payment" data-ripple data-pay href="#" class="catalog__button button">Купить</a>
+					</div>
+					<div class="catalog__filter filter-catalog">
+						<button data-filter="*" type="button" class="filter-catalog__item filter-button active">Все товары</button>
+						<button data-filter="souvenirs" type="button" class="filter-catalog__item filter-button">Сувенирная продукция</button>
+						<button data-filter="furniture" type="button" class="filter-catalog__item filter-button">Мебель ручной работы</button>
+						<button data-filter="pottery" type="button" class="filter-catalog__item filter-button">Гончарные изделия</button>
+					</div>
+					<div class="catalog__items">
+						{% for product in products %}
+						<div data-watch data-watch-threshold='0.2' data-watch-once data-grid-item="{{product.category.title}}" class="catalog__item item-catalog">
+							<div class="item-catalog__image-ibg"><picture><source srcset="{{product.image.url}}" type="image/webp"><img class="{% if product.amount <= 0 %}stock-out{% endif %}" src="{{product.image.url}}" alt="Image"></picture></div>
+							<div class="item-catalog__body">
+								<h3 class="item-catalog__name">{{product.name}}</h3>
+								<div class="item-catalog__price"><span data-digits-counter data-digits-counter-speed="1500">{{product.price}}</span>₽{% if product.is_service %}/час.{% endif %}</div>
+								<a data-ripple {% if product.is_service %} data-popup="#order-info" {% endif %} href="#" class="item-catalog__button button cartButton"
+								   {% if product.amount <= 0 %}style="background-color: grey;  pointer-events: none;cursor: default;"{% endif %}>{%if product.is_service %}Заказать{% elif product.amount > 0 %}В корзину{% else %}Нет в наличии{% endif %}</a>
+							</div>
+						</div>
+						{% endfor %}
+						<!--<div data-watch data-watch-threshold='0.2' data-watch-once data-grid-item="furniture" class="catalog__item item-catalog">
+							<div class="item-catalog__image-ibg"><picture><source srcset="img/catalog/01.webp" type="image/webp"><img src="img/catalog/01.png" alt="Image"></picture></div>
+							<div class="item-catalog__body">
+								<h3 class="item-catalog__name">Не футбока</h3>
+								<div class="item-catalog__price"><span data-digits-counter data-digits-counter-speed="1500">50</span>₽</div>
+								<a data-ripple data-name="Вода" data-price="50" href="#" class="item-catalog__button button cartButton">В корзину</a>
+							</div>
+						</div>
+						<div data-watch data-watch-threshold='0.2' data-watch-once data-grid-item="souvenirs" class="catalog__item item-catalog">
+							<div class="item-catalog__image-ibg"><picture><source srcset="img/catalog/01.webp" type="image/webp"><img src="img/catalog/01.png" alt="Image"></picture></div>
+							<div class="item-catalog__body">
+								<h3 class="item-catalog__name">Футболка</h3>
+								<div class="item-catalog__price"><span data-digits-counter data-digits-counter-speed="1500">80</span>₽</div>
+								<a data-ripple data-name="Сосиска в тесте" data-price="80" href="#" class="item-catalog__button button cartButton">В корзину</a>
+							</div>
+						</div>-->
+					</div>
+				</div>
+			</section>
+		</main>
+		{% for club in clubs %}
+		<div id="club-info{{club.pk}}" aria-hidden="true" class="popup">
+			<div class="popup__wrapper">
+				<div class="popup__content">
+					<button data-close type="button" class="popup__close">❌</button>
+					<div class="popup__body info-club">
+						<div class="info-club__image"><img src="{{club.image}}" alt="Image">></div>
+						<h2 class="info-club__title">{{club.title}}</h2>
+						<div class="info-club__text">
+							<p>{{club.description}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+		<div id="order-info" aria-hidden="true" class="popup">
+			<div class="popup__wrapper">
+				<div class="popup__content">
+					<button data-close type="button" class="popup__close">❌</button>
+					<div class="popup__body info-order">
+						<h3>Наши контакты:</h3>
+						<style>
+							.contact__link {
+								font-size: 1.25rem;
+								color: black;
+								white-space: nowrap;
+								-webkit-transition: all 0.3s ease 0s;
+								transition: all 0.3s ease 0s;
+							}
+							.contact__link:hover {
+   								color: #e73147;
+  							}
+						</style>
+						<ul class="footer__contacts">
+							<li class="footer__item"><a target="_blank" href="tel:+73912264190" class="contact__link">+7 (391) 226-41-90</a></li>
+							<li class="footer__item"><a target="_blank" href="mailto:zentrtehpro@mail.ru" class="contact__link">zentrtehpro@mail.ru</a></li>
+							<li class="footer__item"><a target="_blank" href="https://vk.com/pro_tehno" class="contact__link">vk.com/pro_tehno</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__copy">© <span>2023</span> SkyDream & Pivnenko Ilya</div>
+				<ul class="footer__contacts">
+					<li class="footer__item"><a target="_blank" href="tel:+73912264190" class="contact__link">+7 (391) 226-41-90</a></li>
+					<li class="footer__item"><a target="_blank" href="mailto:zentrtehpro@mail.ru" class="footer__link">zentrtehpro@mail.ru</a></li>
+					<li class="footer__item"><a target="_blank" href="https://vk.com/pro_tehno" class="footer__link">vk.com/pro_tehno</a></li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+	<script src="{% static 'js/app.min.js' %}"></script>
+</body>
+
+</html>

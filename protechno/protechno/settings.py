@@ -62,7 +62,7 @@ ROOT_URLCONF = 'protechno.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['clubs/frontend/src', 'clubs/templates'],
+        'DIRS': ['clubs/dist', 'clubs/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,6 +127,7 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
+    BASE_DIR / "clubs/dist/"
 ]
 
 # Default primary key field type

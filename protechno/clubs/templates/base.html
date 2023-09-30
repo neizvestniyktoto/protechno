@@ -7,8 +7,16 @@
 {% endfor %}
 <h2>Продукция</h2>
 {% for product in products %}
+<style>
+    .stock-out {
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* msie */
+}
+</style>
 <div>
-    <img src="{% if amount>0 %}{{product.image.url}}{% else %}{% endif %}" width="300" height="300"/>
+    <div class="wrapper">
+        <img class="{% if product.amount <= 0 %}stock-out{% endif %}" src="{{product.image.url}}" width="300" height="300"/>
+    </div>
     <h3>{{product.name}}</h3>
     <p>Цена: {{product.price}}</p>
     <button>{% if product.amount > 0 %}Купить{% else %}Нет в наличии{% endif %}</button>

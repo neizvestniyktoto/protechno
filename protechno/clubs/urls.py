@@ -1,8 +1,7 @@
 from django.urls import path, include
 from rest_framework import routers
-
 from .views import index
-from .serializers import CategoryViewSet, ClubViewSet, ProductViewSet
+from .serializers import ClubViewSet, ProductViewSet, CategoryViewSet
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()

@@ -1,5 +1,5 @@
 from rest_framework import routers, serializers, viewsets
-from .models import Product, Category, Club
+from .models import Product, Club, Category
 
 
 class ClubSerializer(serializers.HyperlinkedModelSerializer):

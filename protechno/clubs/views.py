@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import Club, Category, Product
+from .models import Club, Product
 
 
 def index(request):
@@ -8,7 +8,7 @@ def index(request):
         "clubs": Club.objects.all(),
         "products": Product.objects.order_by("-amount")
     }
-    return render(request, 'base.html', context=context)
+    return render(request, 'home.html', context=context)
 
 
 """
