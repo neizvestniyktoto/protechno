@@ -10,8 +10,8 @@ class Category(models.Model):
 
 class Club(models.Model):
     title = models.CharField(max_length=64)
-    #image = models.ImageField()
-    category = models.ForeignKey(Category, on_delete=models.PROTECT)
+    image = models.FileField(upload_to='static/uploads/', default='')
+    category = models.ManyToManyField(Category)
     description = models.CharField(max_length=512)
 
     def __str__(self):
@@ -21,8 +21,9 @@ class Club(models.Model):
 class Product(models.Model):
     club = models.ForeignKey(Club, on_delete=models.CASCADE)
     name = models.CharField(max_length=64)
-    price = models.IntegerField()
-    #image = models.ImageField()
+    price = models.IntegerField(default=0)
+    amount = models.IntegerField(default=0)
+    image = models.FileField(upload_to='static/uploads/', default='')
 
     def __str__(self):
         return self.name

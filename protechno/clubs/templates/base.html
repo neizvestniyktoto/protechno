@@ -1,0 +1,16 @@
+{% load static %}
+{% for club in clubs %}
+<div>
+    <img src="{{club.image.url}}" width="300" height="300"/>
+    <h3>{{club.title}}</h3>
+</div>
+{% endfor %}
+<h2>Продукция</h2>
+{% for product in products %}
+<div>
+    <img src="{% if amount>0 %}{{product.image.url}}{% else %}{% endif %}" width="300" height="300"/>
+    <h3>{{product.name}}</h3>
+    <p>Цена: {{product.price}}</p>
+    <button>{% if product.amount > 0 %}Купить{% else %}Нет в наличии{% endif %}</button>
+</div>
+{% endfor %}
