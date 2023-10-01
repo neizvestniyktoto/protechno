@@ -3,3 +3,5 @@ pip==23.2.1
 django-filter==23.3
 djangorestframework==3.14.0
 Markdown==3.4.4
+webp_converter==4.1.0
+Pillow==10.0.1

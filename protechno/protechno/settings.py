@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os.path
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -130,7 +131,10 @@ STATICFILES_DIRS = [
     BASE_DIR / "clubs/dist/"
 ]
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#<!--<div class="info-club__image"><picture><source srcset="{{club.image_webp.url}}" type="image/webp"><img src="{{club.image.url}}" alt="Image"></picture></div>-->

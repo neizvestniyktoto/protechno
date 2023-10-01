@@ -9,10 +9,3 @@ def index(request):
         "products": Product.objects.order_by("-amount")
     }
     return render(request, 'home.html', context=context)
-
-
-"""
-Картинка
-Товар
-Купить
-"""
